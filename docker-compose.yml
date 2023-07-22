@@ -1,0 +1,11 @@
+version: "2"
+
+services:
+  vscode:
+    image: ilteoood/vscode-remote-tunnels
+    container_name: vscode-remote-tunnels
+    environment:
+      - MACHINE_NAME=YOUR_MACHINE_NAME
+    restart: unless-stopped
+    dns:
+      - 1.1.1.1

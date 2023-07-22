@@ -1,6 +1,6 @@
-!#/bin/bash
+#!/bin/bash
 
-case $3 in
+case $1 in
 
   amd64)
     export ARCH=x64
@@ -10,7 +10,7 @@ case $3 in
     export ARCH=arm64
     ;;
 
-  "arm/v7" | "arm/v6")
+  **)
     export ARCH=armhf
     ;;
 esac

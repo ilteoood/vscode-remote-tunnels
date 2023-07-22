@@ -11,7 +11,7 @@ ARG TARGETARCH
 
 COPY src/* /usr/local/bin/
 
-RUN find_arch ${TARGETARCH} && \
+RUN find_arch $TARGETARCH && \
     apt-get update && \
     export DEBIAN_FRONTEND=noninteractive && \
     apt-get install -y --no-install-recommends \

@@ -1,11 +1,22 @@
 version: "2"
-
+configs:
+  init_script:
+    file: /path/to/your/init/script
+volumes:
+  vscode_data:
 services:
   vscode:
     image: ilteoood/vscode-remote-tunnels
     container_name: vscode-remote-tunnels
     environment:
       - MACHINE_NAME=YOUR_MACHINE_NAME
+    volumes:
+      - vscode_data:/root/.vscode
+      - /var/run/docker.sock:/var/run/docker.sock
+    configs:
+      - source: init_script
+        target: /usr/local/bin/init
+        mode: 777
     restart: unless-stopped
     dns:
       - 1.1.1.1

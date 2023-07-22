@@ -3,20 +3,20 @@
 case $1 in
 
   amd64)
-    export ARCH=x64
+    export VARIANT=alpine-x64
     ;;
 
   arm64)
-    export ARCH=arm64
+    export VARIANT=alpine-arm64
     ;;
 
   **)
-    export ARCH=armhf
+    export VARIANT=linux-armhf
     ;;
 esac
 
 echo "I'll use arch ${ARCH}"
 
-curl -sL "https://code.visualstudio.com/sha/download?build=stable&os=cli-alpine-${ARCH}" --output /tmp/vscode-cli.tar.gz && \
+curl -sL "https://code.visualstudio.com/sha/download?build=stable&os=cli-${VARIANT}" --output /tmp/vscode-cli.tar.gz && \
 tar -xf /tmp/vscode-cli.tar.gz -C /usr/bin && \
 rm /tmp/vscode-cli.tar.gz

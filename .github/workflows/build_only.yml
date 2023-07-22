@@ -1,0 +1,31 @@
+name: Build only image
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        name: Build only image job
+        steps:
+            - name: Checkout master
+              uses: actions/checkout@master
+            - name: Build image
+              uses: ilteoood/docker_buildx@master
+              with:
+                tag: latest,1.0.0
+                platform: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6
+                imageName: ilteoood/vscode-remote-tunnels
+                buildArg: ARCH=armhf
+            - name: Scan image
+              uses: anchore/scan-action@v2
+              with:
+                image: "ilteoood/vscode-remote-tunnels:latest"
+                fail-build: true
+                acs-report-enable: true
+                severity-cutoff: critical
+            - name: Anchore inline scan JSON results
+              run: for j in `ls ./anchore-reports/*.json`; do echo "---- ${j} ----"; cat ${j}; echo; done
+            - name: Inspect action SARIF report
+              run: cat ${{ steps.scan.outputs.sarif }}

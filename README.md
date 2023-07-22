@@ -20,6 +20,8 @@ The container is configurable using 1 environment variable:
 |------|-----------|--------------|-------------|
 |MACHINE_NAME|No|`vscode-remote-tunnels`|The name of the machine that will be displayed using the `Remote tunnel` VSCode extension|
 
+Additionally, it is also possible to override the script at path `/usr/local/bin/init` to install additional software when the container boots.
+
 ## Execution
 
 You can run this image using [Docker compose](https://docs.docker.com/compose/) and the [sample file](./docker-compose.yml) provided.  

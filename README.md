@@ -18,7 +18,7 @@ The container is configurable using 1 environment variable:
 
 | Name | Mandatory | Default value| Description |
 |------|-----------|--------------|-------------|
-|MACHINE_NAME|No|`vscode-remote-tunnels`|The name of the machine that will be displayed using the `Remote tunnel` VSCode extension|
+|MACHINE_NAME|No|`vscode-remote`|The name of the machine that will be used to access the tunnel. It **must** be less than 20 characters.|
 
 Additionally, it is also possible to override the script at path `/usr/local/bin/init` to install additional software when the container boots.
 

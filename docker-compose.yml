@@ -11,7 +11,7 @@ services:
     environment:
       - MACHINE_NAME=YOUR_MACHINE_NAME
     volumes:
-      - vscode_data:/root/.vscode
+      - vscode_data:/root/.vscode-server
       - /var/run/docker.sock:/var/run/docker.sock
     configs:
       - source: init_script

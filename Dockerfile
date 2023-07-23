@@ -5,7 +5,7 @@ LABEL maintainer.name="Matteo Pietro Dazzi" \
     version="1.0.0" \
     description="VSCode remote tunnels Docker image that can be easily deployed everywhere you want"
 
-ENV MACHINE_NAME vscode-remote-tunnels
+ENV MACHINE_NAME vscode-remote
 
 ARG TARGETARCH
 
@@ -19,5 +19,7 @@ RUN apt-get update && \
     git build-essential && \
     apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* && \
     download_vscode $TARGETARCH
+
+WORKDIR /home/workspace
 
 ENTRYPOINT [ "entrypoint" ]

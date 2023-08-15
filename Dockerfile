@@ -8,6 +8,7 @@ LABEL maintainer.name="Matteo Pietro Dazzi" \
 ENV MACHINE_NAME vscode-remote
 
 ARG TARGETARCH
+ARG BUILD=stable
 
 COPY src/* /usr/local/bin/
 
@@ -18,7 +19,7 @@ RUN apt-get update && \
     gnome-keyring wget curl python3-minimal ca-certificates \
     git build-essential && \
     apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* && \
-    download_vscode $TARGETARCH
+    download_vscode $TARGETARCH $BUILD
 
 WORKDIR /home/workspace
 

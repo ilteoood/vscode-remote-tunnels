@@ -19,4 +19,5 @@ echo "I'll use arch ${ARCH}"
 
 curl -sL "https://code.visualstudio.com/sha/download?build=${2}&os=cli-${VARIANT}" --output /tmp/vscode-cli.tar.gz && \
 tar -xf /tmp/vscode-cli.tar.gz -C /usr/bin && \
+[ -f /usr/bin/code-insider ] && mv /usr/bin/code-insider /usr/bin/code && \
 rm /tmp/vscode-cli.tar.gz

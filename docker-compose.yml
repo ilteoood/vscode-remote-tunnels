@@ -4,6 +4,7 @@ configs:
     file: /path/to/your/init/script
 volumes:
   vscode_data:
+  vscode_cli_data:
 services:
   vscode:
     image: ilteoood/vscode-remote-tunnels
@@ -12,6 +13,8 @@ services:
       - MACHINE_NAME=YOUR_MACHINE_NAME
     volumes:
       - vscode_data:/root/.vscode-server
+      - vscode_cli_data:/root/.vscode/cli/code_tunnel.json
+      - vscode_cli_data:/root/.vscode/cli/token.json
       - /var/run/docker.sock:/var/run/docker.sock
     configs:
       - source: init_script

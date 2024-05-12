@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 LABEL maintainer.name="Matteo Pietro Dazzi" \
     maintainer.email="matteopietro.dazzi@gmail.com" \

@@ -5,7 +5,7 @@ LABEL maintainer.name="Matteo Pietro Dazzi" \
     version="1.0.0" \
     description="VSCode remote tunnels Docker image that can be easily deployed everywhere you want"
 
-ENV MACHINE_NAME vscode-remote
+ENV MACHINE_NAME=vscode-remote
 
 ARG TARGETARCH
 ARG BUILD=stable

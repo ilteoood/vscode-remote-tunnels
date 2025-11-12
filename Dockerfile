@@ -18,7 +18,7 @@ RUN apt-get update && \
     tzdata \
     curl ca-certificates \
     git build-essential && \
-    apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* && \
+    apt-get full-upgrade -y && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* && \
     download_vscode $TARGETARCH $BUILD
 
 WORKDIR /home/workspace

@@ -18,7 +18,7 @@ esac
 echo "I'll use build ${2} and variant ${VARIANT}"
 
 curl -sL "https://code.visualstudio.com/sha/download?build=${2}&os=cli-${VARIANT}" --output /tmp/vscode-cli.tar.gz && \
-tar -xf /tmp/vscode-cli.tar.gz -C /usr/bin && \
+tar -xvf /tmp/vscode-cli.tar.gz -C /usr/bin && \
 rm /tmp/vscode-cli.tar.gz
 
 if [ -f "/usr/bin/code-insiders" ]; then
